@@ -1,0 +1,7 @@
+name: Gun
+main: cn.cookiestudio.gun.GunPlugin
+version: "1.0-PNX"
+authors: [daoge_cmd,lt-name,zimzaza4,xkshadow]
+api: ["1.0.13"]
+depend:
+  - Easy4Form
