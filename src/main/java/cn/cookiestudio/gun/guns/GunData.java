@@ -204,7 +204,7 @@ public class GunData {
         effect.setAmplifier(this.slownessLevelAim - 1);
         effect.setVisible(false);
         effect.setDuration(99999);
-        player.removeEffect(Effect.SLOWNESS);
+        player.removeEffect(Effect.SPEED);
         player.addEffect(effect);
     }
 

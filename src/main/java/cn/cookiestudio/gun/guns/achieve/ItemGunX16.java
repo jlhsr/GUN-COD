@@ -2,19 +2,15 @@ package cn.cookiestudio.gun.guns.achieve;
 
 import cn.cookiestudio.gun.guns.ItemGunBase;
 import cn.cookiestudio.gun.guns.ItemMagBase;
-import cn.nukkit.nbt.tag.CompoundTag;
-import cn.nukkit.nbt.tag.FloatTag;
-import cn.nukkit.nbt.tag.ListTag;
+import cn.nukkit.item.customitem.data.Offset;
+import cn.nukkit.item.customitem.data.RenderOffsets;
 import lombok.Getter;
 
-import java.util.HashMap;
-import java.util.Map;
-
 @Getter
-public class ItemGunTaurus extends ItemGunBase {
+public class ItemGunX16 extends ItemGunBase {
 
-    public ItemGunTaurus() {
-        super(getGunData(ItemGunTaurus.class).getGunName());
+    public ItemGunX16() {
+        super(getGunData(ItemGunX16.class).getGunName());
         gunData = getGunData(this.getClass());
         this.setCustomName(gunData.getGunName());
         if (!this.getNamedTag().contains("ammoCount")) {
@@ -34,12 +30,9 @@ public class ItemGunTaurus extends ItemGunBase {
     }
 
     @Override
-    public Map<Double, Integer> scaleOffset() {
-        Map<Double,Integer> map = new HashMap<>();
-        map.put(0.1,1);  //”age“是key，类似于索引，1是索引对应的int值
-        map.put(0.1,2);
-
-        return map;
+    public Offset scaleOffset() {
+        Offset offset = Offset.builder().scale(0,0,0).position(0,0,0).rotation(0,0,0);
+        return offset;
     }
 
     @Override
@@ -49,14 +42,14 @@ public class ItemGunTaurus extends ItemGunBase {
 
     @Override
     public ItemMagBase getItemMagObject() {
-        return new ItemMagTaurus();
+        return new ItemMagX16();
     }
 
-    public static class ItemMagTaurus extends ItemMagBase {
+    public static class ItemMagX16 extends ItemMagBase {
 
-        public ItemMagTaurus() {
-            super(getGunData(ItemGunTaurus.class).getMagName());
-            this.setCustomName(getGunData(ItemGunTaurus.class).getMagName());
+        public ItemMagX16() {
+            super(getGunData(ItemGunX16.class).getMagName());
+            this.setCustomName(getGunData(ItemGunX16.class).getMagName());
         }
 
         @Override

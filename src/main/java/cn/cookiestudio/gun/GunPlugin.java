@@ -50,7 +50,7 @@ public class GunPlugin extends PluginBase {
         stringClassMap.put("mk18", ItemGunMk18.class);
         stringClassMap.put("mp5", ItemGunMp5.class);
         stringClassMap.put("p90", ItemGunP90.class);
-        stringClassMap.put("taurus", ItemGunTaurus.class);
+        stringClassMap.put("x16", ItemGunX16.class);
     }
 
     private static byte[] getBytes(InputStream inStream) throws Exception {

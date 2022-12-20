@@ -2,23 +2,8 @@ package cn.cookiestudio.gun.guns.achieve;
 
 import cn.cookiestudio.gun.guns.ItemGunBase;
 import cn.cookiestudio.gun.guns.ItemMagBase;
-import cn.nukkit.block.customblock.CustomBlockDefinition;
-import cn.nukkit.block.customblock.data.Materials;
-import cn.nukkit.block.customblock.data.Permutation;
-import cn.nukkit.block.customblock.data.Permutations;
-import cn.nukkit.blockproperty.BlockProperties;
-import cn.nukkit.item.Item;
-import cn.nukkit.item.customitem.CustomItemDefinition;
-import cn.nukkit.item.customitem.data.ItemCreativeCategory;
 import cn.nukkit.item.customitem.data.Offset;
-import cn.nukkit.item.customitem.data.RenderOffsets;
-import cn.nukkit.nbt.tag.CompoundTag;
 import lombok.Getter;
-import org.jetbrains.annotations.NotNull;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 @Getter
 public class ItemGunAk47 extends ItemGunBase {
@@ -48,23 +33,15 @@ public class ItemGunAk47 extends ItemGunBase {
     }
 
 
+
+
+
+
+
     @Override
-    public CustomItemDefinition getDefinition() {
-        return CustomItemDefinition
-                .bu
-
-                .renderOffsets(new RenderOffsets(
-                        Offset.builder()
-                                .scale(0.0f, 0.0f, 0.0f),
-                        Offset.builder()
-                                .scale(0.0f, 0.0f, 0.0f)
-
-                        )
-                )
-                .creativeGroup("itemGroup.name.sword")
-                .allowOffHand(false)
-                .handEquipped(true)
-                ;
+    public Offset scaleOffset() {
+        Offset offset = Offset.builder().scale(0,0,0).position(0,0,0).rotation(0,0,0);
+        return offset;
     }
 
     @Override

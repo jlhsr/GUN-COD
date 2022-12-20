@@ -2,13 +2,9 @@ package cn.cookiestudio.gun.guns.achieve;
 
 import cn.cookiestudio.gun.guns.ItemGunBase;
 import cn.cookiestudio.gun.guns.ItemMagBase;
-import cn.nukkit.nbt.tag.CompoundTag;
-import cn.nukkit.nbt.tag.FloatTag;
-import cn.nukkit.nbt.tag.ListTag;
+import cn.nukkit.item.customitem.data.Offset;
+import cn.nukkit.item.customitem.data.RenderOffsets;
 import lombok.Getter;
-
-import java.util.HashMap;
-import java.util.Map;
 
 @Getter
 public class ItemGunBarrett extends ItemGunBase {
@@ -34,12 +30,9 @@ public class ItemGunBarrett extends ItemGunBase {
     }
 
     @Override
-    public Map<Double, Integer> scaleOffset() {
-        Map<Double,Integer> map = new HashMap<>();
-        map.put(0.1,1);  //”age“是key，类似于索引，1是索引对应的int值
-        map.put(0.1,2);
-
-        return map;
+    public Offset scaleOffset() {
+        Offset offset = Offset.builder().scale(0,0,0).position(0,0,0).rotation(0,0,0);
+        return offset;
     }
 
     @Override

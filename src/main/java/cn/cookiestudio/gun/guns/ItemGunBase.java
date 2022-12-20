@@ -18,6 +18,7 @@ import cn.nukkit.item.Item;
 import cn.nukkit.item.customitem.CustomItemDefinition;
 import cn.nukkit.item.customitem.ItemCustomEdible;
 import cn.nukkit.item.customitem.data.ItemCreativeCategory;
+import cn.nukkit.item.customitem.data.Offset;
 import cn.nukkit.math.Vector3;
 import cn.nukkit.nbt.tag.CompoundTag;
 import cn.nukkit.network.protocol.AnimatePacket;
@@ -45,9 +46,9 @@ public abstract class ItemGunBase extends ItemCustomEdible {
                     if (!GunPlugin.getInstance().getCoolDownTimer().isCooling(player) || GunPlugin.getInstance().getCoolDownTimer().getCoolDownMap().get(player).getType() != CoolDownTimer.Type.RELOAD) {
                         if (GunPlugin.getInstance().getPlayerSettingPool().getSettings().containsKey(player.getName()) && GunPlugin.getInstance().getPlayerSettingPool().getSettings().get(player.getName()).getFireMode() == PlayerSettingMap.FireMode.AUTO) {
                             if (!GunPlugin.getInstance().getFireTask().firing(player)) {
-                                player.sendActionBar("<" + itemGun.getAmmoCount() + "/" + itemGun.getGunData().getMagSize() + ">\n§dAUTO MODE: §cOFF");
+                                player.sendActionBar("<" + itemGun.getAmmoCount() + "/" + itemGun.getGunData().getMagSize() + ">\n§d射击模式 §c单发");
                             } else {
-                                player.sendActionBar("<" + itemGun.getAmmoCount() + "/" + itemGun.getGunData().getMagSize() + ">\n§dAUTO MODE: §aON");
+                                player.sendActionBar("<" + itemGun.getAmmoCount() + "/" + itemGun.getGunData().getMagSize() + ">\n§d射击模式: §a全自动");
                             }
                         } else {
                             player.sendActionBar("<" + itemGun.getAmmoCount() + "/" + itemGun.getGunData().getMagSize() + ">");
@@ -57,7 +58,7 @@ public abstract class ItemGunBase extends ItemCustomEdible {
                     CoolDownTimer.CoolDown coolDown = GunPlugin.getInstance().getCoolDownTimer().getCoolDownMap().get(player);
                     if (coolDown.getType() == CoolDownTimer.Type.RELOAD) {
                         StringBuilder stringBuilder = new StringBuilder();
-                        stringBuilder.append("RELOAD: §a");
+                        stringBuilder.append("RELOADING: §a");
                         int bound = (int) (30.0 * ((double) coolDown.coolDownTick / (itemGun.getGunData().getReloadTime() * 20)));
                         for (int i = 30; i >= 1; i--) {
                             if (i < bound) stringBuilder.append("|");
@@ -192,7 +193,7 @@ public abstract class ItemGunBase extends ItemCustomEdible {
                 }
             }
         }, () -> {
-            player.sendMessage("§creload interrupt!");
+            player.sendMessage("§c换弹终止!");
             return CoolDownTimer.Operator.INTERRUPT;
         }, CoolDownTimer.Type.RELOAD);
         return true;
@@ -230,7 +231,7 @@ public abstract class ItemGunBase extends ItemCustomEdible {
         }
     }
 
-    public abstract Map<Double, Integer> scaleOffset();
+    public abstract Offset scaleOffset();
 
     public abstract ItemMagBase getItemMagObject();
 
