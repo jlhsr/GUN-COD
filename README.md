@@ -1,5 +1,6 @@
 # GUN-Pro
-
+原仓库https://github.com/Cookie-Studio/Gun
+这是刀哥GUN的一个分支版本
 + 实时火光{建议在小游戏房间开启自动还原的情况下使用}
 
 
